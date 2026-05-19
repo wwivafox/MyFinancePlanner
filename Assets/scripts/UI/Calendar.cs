@@ -111,16 +111,37 @@ public class Calendar : MonoBehaviour
             dc.date = new DateTime(year, month, day);
             dc.text.text = day.ToString();
             dc.background.alpha = 0f;
+
+            Button btn = cell.GetComponent<Button>();
+            CanvasGroup cg = cell.GetComponent<CanvasGroup>();
+            if (cg == null) cg = cell.AddComponent<CanvasGroup>();
+
+            // Базовый цвет
             dc.text.color = new Color32(0x5B, 0x5A, 0x5A, 0xFF);
 
+            // Сегодня — зелёный
             if (dc.date == today)
                 dc.text.color = new Color32(0x34, 0xC7, 0x59, 0xFF);
 
-            cell.GetComponent<Button>().onClick.AddListener(() =>
+            // 🔥 БУДУЩИЕ ДАТЫ — НЕДОСТУПНЫ
+            if (dc.date > today)
             {
-                OnDateSelected(dc);
-            });
+                btn.interactable = false;
+                cg.alpha = 0.5f;
+            }
+            else
+            {
+                btn.interactable = true;
+                cg.alpha = 1f;
+
+                btn.onClick.AddListener(() =>
+                {
+                    OnDateSelected(dc);
+                });
+            }
         }
+
+
 
         selectedDay = null;
         lastSelectedCell = null;

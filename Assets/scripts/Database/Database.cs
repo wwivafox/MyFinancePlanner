@@ -35,7 +35,6 @@ public class Database
             connection.Insert(new Category { Name = "Кэшбэк", IconName = "Деньги2", IsIncome = true });
             connection.Insert(new Category { Name = "Инвестиции", IconName = "Проценты", IsIncome = true });
             connection.Insert(new Category { Name = "Подработка", IconName = "Деньги", IsIncome = true });
-            connection.Insert(new Category { Name = "Долг", IconName = "Долг", IsIncome = true });
             connection.Insert(new Category { Name = "Подарок", IconName = "ДеньгиПодарок", IsIncome = true });
            
         }

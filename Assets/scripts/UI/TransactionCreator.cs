@@ -1,56 +1,74 @@
-using UnityEngine;
+п»їusing UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
+using UnityEngine.SceneManagement;
 
 public class TransactionCreator : MonoBehaviour
 {
-    [Header("UI — Список счетов")]
+    [Header("UI вЂ” РЎРїРёСЃРѕРє СЃС‡РµС‚РѕРІ")]
     public Transform accountsContainer;
     public GameObject accountItemPrefab;
 
-    [Header("UI — Категории")]
+    [Header("UI вЂ” РљР°С‚РµРіРѕСЂРёРё")]
     public Button incomeTab;
     public Button expenseTab;
     public Transform categoryContainer;
     public GameObject categoryButtonPrefab;
 
-    private bool isIncome = false;
+    private bool isIncome = true;
     private string selectedCategory = null;
     private Button lastSelectedCategoryButton;
 
-    [Header("UI — Сумма")]
+    [Header("UI вЂ” РЎСѓРјРјР°")]
     public TMP_InputField amountInput;
 
-    [Header("UI — Дата (из календаря)")]
+    [Header("UI вЂ” Р”Р°С‚Р° (РёР· РєР°Р»РµРЅРґР°СЂСЏ)")]
     private DateTime selectedDate;
 
-    [Header("UI — Описание")]
+    [Header("UI вЂ” РћРїРёСЃР°РЅРёРµ")]
     public TMP_InputField descriptionInput;
+    public TMP_Text descriptionCounter;
 
-    [Header("UI — Кнопка создания")]
+    [Header("UI вЂ” РљРЅРѕРїРєР° СЃРѕР·РґР°РЅРёСЏ")]
     public Button createButton;
+    private CanvasGroup createButtonCanvas;
 
-    // БД
+    // Р‘Р”
     private Repository repo;
     private List<Category> loadedCategories;
     private List<Account> loadedAccounts;
     private Account selectedAccount;
 
+    private static TransactionCreator instance;
+
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instance = this;
+
+        createButton.onClick.RemoveAllListeners();
+        createButton.onClick.AddListener(CreateTransaction);
+    }
+
+
     private System.Collections.IEnumerator Start()
     {
-        // Ждём появления DatabaseManager
         while (DatabaseManager.Instance == null)
             yield return null;
 
-        // Ждём появления DB
         while (DatabaseManager.Instance.DB == null)
             yield return null;
 
         repo = new Repository();
 
-        // Ждём, пока база реально отдаст данные
         loadedCategories = repo.GetCategories();
         while (loadedCategories == null)
             yield return null;
@@ -61,22 +79,29 @@ public class TransactionCreator : MonoBehaviour
 
         GenerateAccountsUI();
 
+        createButtonCanvas = createButton.GetComponent<CanvasGroup>();
+        if (createButtonCanvas == null)
+            createButtonCanvas = createButton.gameObject.AddComponent<CanvasGroup>();
+
         if (loadedAccounts.Count > 0)
             SelectAccount(loadedAccounts[0]);
 
         incomeTab.onClick.AddListener(() => SwitchType(true));
         expenseTab.onClick.AddListener(() => SwitchType(false));
-        createButton.onClick.AddListener(CreateTransaction);
 
         selectedDate = DateTime.Now.Date;
 
-        SwitchType(false);
+        amountInput.onValueChanged.AddListener(OnAmountChanged);
+        amountInput.onEndEdit.AddListener(FormatAmount);
+
+        descriptionInput.onValueChanged.AddListener((string v) => OnDescriptionChanged(v));
+
+        UpdateCreateButtonState();
+        SwitchType(true);
     }
 
-
-
     // -----------------------------
-    // СЧЕТА
+    // РЎР§Р•РўРђ
     // -----------------------------
     private void GenerateAccountsUI()
     {
@@ -94,10 +119,30 @@ public class TransactionCreator : MonoBehaviour
     public void SelectAccount(Account acc)
     {
         selectedAccount = acc;
+
+        foreach (Transform child in accountsContainer)
+        {
+            CanvasGroup cg = child.GetComponent<CanvasGroup>();
+            if (cg != null)
+                cg.alpha = 0.5f;
+        }
+
+        foreach (Transform child in accountsContainer)
+        {
+            AccountItem ai = child.GetComponent<AccountItem>();
+            if (ai != null && ai.Account == acc)
+            {
+                CanvasGroup cg = child.GetComponent<CanvasGroup>();
+                if (cg != null)
+                    cg.alpha = 1f;
+            }
+        }
+
+        UpdateCreateButtonState();
     }
 
     // -----------------------------
-    // КАТЕГОРИИ
+    // РљРђРўР•Р“РћР РР
     // -----------------------------
     private void SwitchType(bool income)
     {
@@ -106,23 +151,17 @@ public class TransactionCreator : MonoBehaviour
         incomeTab.interactable = !income;
         expenseTab.interactable = income;
 
+        TMP_Text incomeText = incomeTab.GetComponentInChildren<TMP_Text>();
+        TMP_Text expenseText = expenseTab.GetComponentInChildren<TMP_Text>();
+
+        incomeText.fontSize = income ? 29 : 24;
+        expenseText.fontSize = income ? 24 : 29;
+
         LoadCategories();
     }
 
     private void LoadCategories()
     {
-        if (categoryContainer == null)
-        {
-            Debug.LogError("categoryContainer == NULL !!! Назначь контейнер категорий в инспекторе");
-            return;
-        }
-
-        if (loadedCategories == null)
-        {
-            Debug.LogWarning("Категории ещё не загружены — LoadCategories() отменён");
-            return;
-        }
-
         foreach (Transform child in categoryContainer)
             Destroy(child.gameObject);
 
@@ -137,52 +176,166 @@ public class TransactionCreator : MonoBehaviour
             TMP_Text txt = btnObj.GetComponentInChildren<TMP_Text>();
             txt.text = cat.Name;
 
+            Image icon = btnObj.transform.Find("Icon").GetComponent<Image>();
+            icon.sprite = Resources.Load<Sprite>("Sprites/Category/" + cat.IconName);
+
             Button btn = btnObj.GetComponent<Button>();
-
-            btn.onClick.AddListener(() =>
-            {
-                SelectCategory(cat.Name, btn);
-            });
+            btn.onClick.AddListener(() => SelectCategory(cat.Name, btn));
         }
-    }
 
+        UpdateCreateButtonState();
+    }
 
     public void SelectCategory(string categoryName, Button btn)
     {
+        if (selectedCategory == categoryName)
+        {
+            selectedCategory = null;
+            lastSelectedCategoryButton = null;
+
+            foreach (Transform child in categoryContainer)
+            {
+                CanvasGroup cg = child.GetComponent<CanvasGroup>();
+                if (cg != null)
+                    cg.alpha = 1f;
+            }
+
+            UpdateCreateButtonState();
+            return;
+        }
+
         selectedCategory = categoryName;
 
-        if (lastSelectedCategoryButton != null)
-            lastSelectedCategoryButton.interactable = true;
+        foreach (Transform child in categoryContainer)
+        {
+            CanvasGroup cg = child.GetComponent<CanvasGroup>();
+            if (cg != null)
+                cg.alpha = 0.5f;
+        }
 
-        btn.interactable = false;
+        CanvasGroup selectedCg = btn.GetComponent<CanvasGroup>();
+        if (selectedCg != null)
+            selectedCg.alpha = 1f;
+
         lastSelectedCategoryButton = btn;
+
+        UpdateCreateButtonState();
     }
 
     // -----------------------------
-    // ДАТА
+    // Р”РђРўРђ
     // -----------------------------
     public void SetDate(DateTime date)
     {
         selectedDate = date;
+        UpdateCreateButtonState();
     }
 
     // -----------------------------
-    // СОЗДАНИЕ ТРАНЗАКЦИИ
+    // РЎРЈРњРњРђ вЂ” РІРІРѕРґ Рё С„РѕСЂРјР°С‚РёСЂРѕРІР°РЅРёРµ
     // -----------------------------
-    private void CreateTransaction()
+    private void OnAmountChanged(string value)
+    {
+        if (string.IsNullOrEmpty(value))
+        {
+            UpdateCreateButtonState();
+            return;
+        }
+
+        string cleaned = "";
+        bool dotFound = false;
+
+        foreach (char c in value)
+        {
+            if (char.IsDigit(c))
+                cleaned += c;
+            else if ((c == '.' || c == ',') && !dotFound)
+            {
+                cleaned += '.';
+                dotFound = true;
+            }
+        }
+
+        if (cleaned != value)
+        {
+            int caret = amountInput.caretPosition;
+            amountInput.text = cleaned;
+            amountInput.caretPosition = Mathf.Min(caret, cleaned.Length);
+        }
+
+        UpdateCreateButtonState();
+    }
+
+    private void FormatAmount(string value)
+    {
+        if (string.IsNullOrWhiteSpace(value))
+            return;
+
+        // РїСЂРёРІРѕРґРёРј Рє РёРЅРІР°СЂРёР°РЅС‚РЅРѕРјСѓ РІРёРґСѓ: С‚РѕС‡РєР° РєР°Рє СЂР°Р·РґРµР»РёС‚РµР»СЊ
+        string raw = value.Trim()
+                          .Replace(" ", "")
+                          .Replace("\u200B", "")
+                          .Replace(",", ".");
+
+        if (float.TryParse(raw,
+                           NumberStyles.Any,
+                           CultureInfo.InvariantCulture,
+                           out float number))
+        {
+            // С„РѕСЂРјР°С‚РёСЂСѓРµРј С‚РѕР¶Рµ С‡РµСЂРµР· InvariantCulture
+            amountInput.text = number.ToString("0.00", CultureInfo.InvariantCulture);
+        }
+        else
+        {
+            amountInput.text = "";
+        }
+
+        UpdateCreateButtonState();
+    }
+
+    // -----------------------------
+    // РћРџРРЎРђРќРР•
+    // -----------------------------
+    public void OnDescriptionChanged(string _)
+    {
+        const int maxLen = 100;
+
+        string real = descriptionInput.text;
+
+        if (real.Length > maxLen)
+        {
+            int caret = descriptionInput.caretPosition;
+
+            real = real.Substring(0, maxLen);
+            descriptionInput.text = real;
+
+            descriptionInput.caretPosition = Mathf.Min(caret, maxLen);
+        }
+
+        descriptionCounter.text = $"{real.Length}/{maxLen}";
+    }
+
+    // -----------------------------
+    // РЎРћР—Р”РђРќРР• РўР РђРќР—РђРљР¦РР
+    // -----------------------------
+    public void CreateTransaction()
     {
         if (!ValidateInput())
             return;
 
-        float amount = float.Parse(amountInput.text.Replace(",", "."));
+        float amount;
+        string raw = amountInput.text.Replace(" ", "").Replace("\u200B", "").Replace(",", ".");
 
-        Category cat = loadedCategories.Find(c => c.Name == selectedCategory && c.IsIncome == isIncome);
-
-        if (cat == null)
+        if (!float.TryParse(raw,
+                            NumberStyles.Any,
+                            CultureInfo.InvariantCulture,
+                            out amount))
         {
-            Debug.LogError("Категория не найдена в БД!");
+            Debug.LogError("вќЊ РћС€РёР±РєР° РїР°СЂСЃРёРЅРіР° СЃСѓРјРјС‹ РІ CreateTransaction()");
             return;
         }
+
+        Category cat = loadedCategories.Find(c => c.Name == selectedCategory && c.IsIncome == isIncome);
 
         Transaction t = new Transaction
         {
@@ -202,38 +355,58 @@ public class TransactionCreator : MonoBehaviour
 
         repo.UpdateAccount(selectedAccount);
 
-        Debug.Log("Транзакция успешно сохранена!");
-
-        ClearForm();
+        SceneManager.LoadScene("MainPage");
     }
 
     private bool ValidateInput()
     {
-        if (string.IsNullOrEmpty(amountInput.text))
-        {
-            Debug.LogWarning("Введите сумму");
+        if (amountInput == null)
             return false;
-        }
+
+        string raw = amountInput.text ?? "";
+
+        string clean = raw
+            .Replace(" ", "")
+            .Replace("\u200B", "")
+            .Replace("\u2060", "")
+            .Replace("\uFEFF", "")
+            .Replace("\n", "")
+            .Replace("\r", "")
+            .Replace(",", ".")
+            .Trim();
+
+        if (string.IsNullOrEmpty(clean))
+            return false;
+
+        bool parsed = float.TryParse(clean,
+            NumberStyles.Any,
+            CultureInfo.InvariantCulture,
+            out float amount);
+
+        if (!parsed)
+            return false;
+
+        if (amount <= 0)
+            return false;
 
         if (selectedCategory == null)
-        {
-            Debug.LogWarning("Выберите категорию");
             return false;
-        }
-
-        if (selectedDate == default)
-        {
-            Debug.LogWarning("Выберите дату");
-            return false;
-        }
 
         if (selectedAccount == null)
-        {
-            Debug.LogWarning("Выберите счёт");
             return false;
-        }
 
         return true;
+    }
+
+    private void UpdateCreateButtonState()
+    {
+        if (createButtonCanvas == null)
+            return;
+
+        bool valid = ValidateInput();
+
+        createButton.interactable = valid;
+        createButtonCanvas.alpha = valid ? 1f : 0.5f;
     }
 
     private void ClearForm()
@@ -247,4 +420,22 @@ public class TransactionCreator : MonoBehaviour
 
         lastSelectedCategoryButton = null;
     }
+
+    private string CleanAmount(string raw)
+    {
+        if (raw == null)
+            return "";
+
+        return raw
+            .Replace(" ", "")
+            .Replace("\u200B", "")
+            .Replace("\u2060", "")
+            .Replace("\uFEFF", "")
+            .Replace("\n", "")
+            .Replace("\r", "")
+            .Replace(",", ".")
+            .Trim();
+    }
+
+    
 }

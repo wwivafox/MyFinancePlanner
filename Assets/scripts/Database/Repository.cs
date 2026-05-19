@@ -31,6 +31,12 @@ public class Repository
         return conn.Table<Account>().ToList();
     }
 
+    public Account GetAccountById(int id)
+    {
+        return conn.Table<Account>().FirstOrDefault(a => a.Id == id);
+    }
+
+
     public void UpdateAccount(Account acc)
     {
         conn.Update(acc);
@@ -53,6 +59,12 @@ public class Repository
         return conn.Table<Category>().ToList();
     }
 
+    public Category GetCategoryById(int id)
+    {
+        return conn.Table<Category>().FirstOrDefault(c => c.Id == id);
+    }
+
+
     public void DeleteCategory(int id)
     {
         conn.Delete<Category>(id);
@@ -64,6 +76,12 @@ public class Repository
     {
         conn.Insert(t);
     }
+
+    public List<Transaction> GetTransactions()
+    {
+        return conn.Table<Transaction>().ToList();
+    }
+
 
     public List<Transaction> GetTransactionsByAccount(int accountId)
     {
@@ -83,6 +101,8 @@ public class Repository
     {
         conn.Delete<Transaction>(id);
     }
+
+
 
     // Тип цветов
     public List<FlowerType> GetFlowerTypes()
