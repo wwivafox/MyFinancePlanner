@@ -1,17 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class DatabaseManager : MonoBehaviour
 {
     public static DatabaseManager Instance { get; private set; }
-
     public Database DB { get; private set; }
-
-    void Start()
-    {
-        
-    }
 
     private void Awake()
     {
@@ -20,17 +12,16 @@ public class DatabaseManager : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
 
+            Debug.Log("DBManager Awake() BEGIN");
+
             DB = new Database();
+            DB.Init();
+
+            Debug.Log("DBManager Awake() END");
         }
         else
         {
             Destroy(gameObject);
         }
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
