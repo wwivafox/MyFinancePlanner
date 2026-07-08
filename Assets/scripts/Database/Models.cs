@@ -1,4 +1,4 @@
-using SQLite4Unity3d;
+﻿using SQLite4Unity3d;
 
 public class Account
 {
@@ -46,17 +46,26 @@ public class FlowerType
     public string Stage9 { get; set; }
 }
 
+
 public class Goal
 {
     [PrimaryKey, AutoIncrement]
     public int Id { get; set; }
+
     public string Title { get; set; }
     public float TargetAmount { get; set; }
     public float CurrentAmount { get; set; }
+
     public int FlowerTypeId { get; set; }
+
     public string CreatedDate { get; set; }
     public string Deadline { get; set; }
+
+    public int PageIndex { get; set; }   
+    public int SlotIndex { get; set; }   
 }
+
+
 
 public class CompletedGoal
 {

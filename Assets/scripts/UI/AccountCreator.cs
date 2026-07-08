@@ -6,9 +6,11 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using System.Globalization;
 
-
 public class AccountCreator : MonoBehaviour
 {
+    [Header("Заголовок страницы")]
+    public TMP_Text headerText;
+
     [Header("Название счёта")]
     public TMP_InputField nameInput;
     public TMP_Text nameCounter;
@@ -28,6 +30,7 @@ public class AccountCreator : MonoBehaviour
 
     [Header("Начальная сумма")]
     public TMP_InputField amountInput;
+    public TMP_Text amountLabel;
 
     [Header("Цвет счёта")]
     public Transform colorContainer;
@@ -51,6 +54,9 @@ public class AccountCreator : MonoBehaviour
         "#DB1EC8", "#1EB2DB", "#EB8423", "#FF2D55",
         "#412F6E", "#2F7554", "#AF5A5C", "#6672AF"
     };
+
+    private bool isEditMode = false;
+    private Account editingAccount;
 
     void Start()
     {
@@ -78,35 +84,79 @@ public class AccountCreator : MonoBehaviour
 
         saveButton.onClick.AddListener(SaveAccount);
 
+        if (EditAccountData.EditingAccount != null)
+        {
+            isEditMode = true;
+            editingAccount = EditAccountData.EditingAccount;
+
+            headerText.text = "Редактирование счёта";
+
+            nameInput.text = editingAccount.Name;
+            selectedCurrency = editingAccount.Currency;
+            currencyText.text = selectedCurrency;
+
+            amountInput.text = editingAccount.StartAmount.ToString("0.00");
+
+            selectedColorHex = editingAccount.ColorHex;
+            HighlightSelectedColor();
+
+            amountLabel.text = "Текущая сумма";
+        }
+        else
+        {
+            headerText.text = "Новый счёт";
+            amountLabel.text = "Начальная сумма";
+
+            SelectCurrency("BYN", currencyBYN);
+        }
+
         UpdateSaveButtonState();
     }
 
-    // -----------------------------
+
+    private void FillEditMode()
+    {
+        nameInput.text = editingAccount.Name;
+        nameCounter.text = $"{editingAccount.Name.Length}/20";
+
+        selectedCurrency = editingAccount.Currency;
+        currencyText.text = selectedCurrency;
+
+        amountInput.text = editingAccount.StartAmount.ToString("0.00", CultureInfo.InvariantCulture);
+
+        selectedColorHex = editingAccount.ColorHex;
+
+        foreach (var img in colorCircles)
+            img.canvasRenderer.SetAlpha(0.5f);
+
+        foreach (var img in colorCircles)
+        {
+            if (ColorUtility.TryParseHtmlString(selectedColorHex, out var col))
+            {
+                if (img.color == col)
+                {
+                    img.canvasRenderer.SetAlpha(1f);
+                    break;
+                }
+            }
+        }
+
+        saveButton.GetComponentInChildren<TMP_Text>().text = "Сохранить";
+    }
+
     // НАЗВАНИЕ СЧЁТА
-    // -----------------------------
     private void OnNameChanged(string value)
     {
         if (value.Length > 20)
-        {
             nameInput.text = value.Substring(0, 20);
-        }
 
         nameCounter.text = $"{nameInput.text.Length}/20";
         UpdateSaveButtonState();
     }
 
-    // -----------------------------
     // ВАЛЮТА
-    // -----------------------------
-    public void OpenCurrencyPanel()
-    {
-        currencyPanel.SetActive(true);
-    }
-
-    private void CloseCurrencyPanel()
-    {
-        currencyPanel.SetActive(false);
-    }
+    public void OpenCurrencyPanel() => currencyPanel.SetActive(true);
+    private void CloseCurrencyPanel() => currencyPanel.SetActive(false);
 
     private void SelectCurrency(string currency, TMP_Text selectedText)
     {
@@ -124,9 +174,7 @@ public class AccountCreator : MonoBehaviour
         UpdateSaveButtonState();
     }
 
-    // -----------------------------
     // СУММА
-    // -----------------------------
     private void OnAmountChanged(string value)
     {
         if (string.IsNullOrEmpty(value))
@@ -157,52 +205,31 @@ public class AccountCreator : MonoBehaviour
         }
     }
 
-
     private void FormatAmount(string value)
     {
         if (string.IsNullOrWhiteSpace(value))
             return;
 
-        // приводим к инвариантному виду: точка как разделитель
-        string raw = value.Trim()
-                          .Replace(" ", "")
-                          .Replace("\u200B", "")
-                          .Replace(",", ".");
+        string raw = value.Trim().Replace(" ", "").Replace("\u200B", "").Replace(",", ".");
 
-        if (float.TryParse(raw,
-                           NumberStyles.Any,
-                           CultureInfo.InvariantCulture,
-                           out float number))
-        {
-            // форматируем тоже через InvariantCulture
+        if (float.TryParse(raw, NumberStyles.Any, CultureInfo.InvariantCulture, out float number))
             amountInput.text = number.ToString("0.00", CultureInfo.InvariantCulture);
-        }
         else
-        {
             amountInput.text = "";
-        }
 
         UpdateSaveButtonState();
     }
 
-    // -----------------------------
     // ЦВЕТ
-    // -----------------------------
     private void GenerateColorCircles()
     {
-
-        Debug.Log("Генерирую цвета...");
-
         foreach (string hex in availableColors)
         {
             GameObject circle = Instantiate(colorCirclePrefab, colorContainer);
 
-            // ★ Ищем Image внутри дочернего объекта "Color"
             Image img = circle.GetComponentInChildren<Image>();
 
-
-            Color col;
-            ColorUtility.TryParseHtmlString(hex, out col);
+            ColorUtility.TryParseHtmlString(hex, out var col);
             img.color = col;
 
             colorCircles.Add(img);
@@ -211,7 +238,6 @@ public class AccountCreator : MonoBehaviour
             btn.onClick.AddListener(() => SelectColor(hex, img));
         }
     }
-
 
     private void SelectColor(string hex, Image selectedImg)
     {
@@ -235,25 +261,27 @@ public class AccountCreator : MonoBehaviour
         UpdateSaveButtonState();
     }
 
-    // -----------------------------
     // СОХРАНЕНИЕ
-    // -----------------------------
     private void SaveAccount()
     {
         if (!ValidateInput())
             return;
 
-        // ★ Безопасное преобразование суммы
-        string raw = amountInput.text
-            .Replace(" ", "")
-            .Replace("\u200B", "")
-            .Replace("\u2060", "")
-            .Replace("\uFEFF", "")
-            .Replace(",", ".")
-            .Trim();
+        float amount = float.Parse(amountInput.text, CultureInfo.InvariantCulture);
 
-        float amount = 0f;
-        float.TryParse(raw, System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out amount);
+        if (isEditMode)
+        {
+            editingAccount.Name = nameInput.text;
+            editingAccount.Currency = selectedCurrency;
+            editingAccount.StartAmount = amount;
+            editingAccount.ColorHex = selectedColorHex;
+
+            repo.UpdateAccount(editingAccount);
+
+            EditAccountData.EditingAccount = null;
+            SceneManager.LoadScene("MainPage");
+            return;
+        }
 
         Account acc = new Account
         {
@@ -266,23 +294,17 @@ public class AccountCreator : MonoBehaviour
         repo.AddAccount(acc);
 
         SceneManager.LoadScene("MainPage");
+
+        EditAccountData.EditingAccount = null;
+
     }
-
-
 
     private bool ValidateInput()
     {
-        if (string.IsNullOrWhiteSpace(nameInput.text))
-            return false;
-
-        if (selectedCurrency == null)
-            return false;
-
-        if (string.IsNullOrWhiteSpace(amountInput.text))
-            return false;
-
-        if (selectedColorHex == null)
-            return false;
+        if (string.IsNullOrWhiteSpace(nameInput.text)) return false;
+        if (selectedCurrency == null) return false;
+        if (string.IsNullOrWhiteSpace(amountInput.text)) return false;
+        if (selectedColorHex == null) return false;
 
         return true;
     }
@@ -290,8 +312,30 @@ public class AccountCreator : MonoBehaviour
     private void UpdateSaveButtonState()
     {
         bool valid = ValidateInput();
-
         saveButton.interactable = valid;
         saveButtonCanvas.alpha = valid ? 1f : 0.5f;
     }
+
+    private void HighlightSelectedColor()
+    {
+        foreach (var img in colorCircles)
+            img.canvasRenderer.SetAlpha(0.5f);
+
+        foreach (var img in colorCircles)
+        {
+            if (ColorUtility.ToHtmlStringRGB(img.color) == selectedColorHex.Replace("#", ""))
+            {
+                img.canvasRenderer.SetAlpha(1f);
+                break;
+            }
+        }
+    }
+
+    private void OnDisable()
+    {
+        EditAccountData.EditingAccount = null;
+        isEditMode = false;
+    }
+
+
 }

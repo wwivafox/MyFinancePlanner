@@ -10,12 +10,6 @@ public class Repository
 
     public Repository()
     {
-        if (DatabaseManager.Instance == null)
-            Debug.LogError("DatabaseManager.Instance == null Ч он не успел инициализироватьс€!");
-
-        if (DatabaseManager.Instance.DB == null)
-            Debug.LogError("DatabaseManager.Instance.DB == null Ч база не создана!");
-
         conn = DatabaseManager.Instance.DB.GetConnection();
     }
 
@@ -102,6 +96,12 @@ public class Repository
         conn.Delete<Transaction>(id);
     }
 
+    public void UpdateTransaction(Transaction t)
+    {
+        conn.Update(t);
+    }
+
+
 
 
     // “ип цветов
@@ -154,7 +154,6 @@ public class Repository
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         

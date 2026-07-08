@@ -3,24 +3,16 @@
   "WorkspaceRootPath": "D:\\My project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\CategoryIcon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\CategoryIcon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\Database\\Repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\Database\\Repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\CategoryItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\CategoryItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\MainPage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\MainPage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\CategoryIconLoader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\CategoryIconLoader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\CategoryIconSelector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\CategoryIconSelector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\CategoryCreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\CategoryCreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\Database\\DatabaseManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\Database\\DatabaseManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\TransactionCreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -31,64 +23,108 @@
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\Database\\Database.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\Database\\DatabaseManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\Database\\DatabaseManager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\AccountItem2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\AccountItem2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\CategoryItemSelector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\CategoryItemSelector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\BootstrapManeger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\BootstrapManeger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\Database\\Models.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\Database\\Models.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\Database\\Repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\Database\\Repository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\AccountCreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\AccountCreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\AccountItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\AccountItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\NavigationButtons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\NavigationButtons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\MainPage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\MainPage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Library\\PackageCache\\com.unity.ugui@1.0.0\\Runtime\\UI\\Core\\StencilMaterial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Library\\PackageCache\\com.unity.ugui@1.0.0\\Runtime\\UI\\Core\\StencilMaterial.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\CalendarPage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\CalendarPage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\EditTransactionData.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\EditTransactionData.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\Calendar2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\Calendar2.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\AccountViewItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\AccountViewItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\AccountCreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\AccountCreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\ConfirmDeletePanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\ConfirmDeletePanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\AccountItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\AccountItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\Calendar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\Calendar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\TransactionItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\TransactionItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\SelectedDateMemory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\SelectedDateMemory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\CalendarPage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\CalendarPage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\StatisticsType.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\StatisticsType.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\StatisticsPage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\StatisticsPage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\StatisticsPeriodSelector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\StatisticsPeriodSelector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\NavigationButtons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\NavigationButtons.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\Database\\Models.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\Database\\Models.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\GreenhousePage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\GreenhousePage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\GoalSlotView.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\GoalSlotView.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\DayCell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\DayCell.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\Calendar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\Calendar.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\CategoryItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\CategoryItem.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\CategoryIconSelector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\CategoryIconSelector.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\CategoryIconLoader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\CategoryIconLoader.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\CategoryIcon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\CategoryIcon.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\CategoryCreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\CategoryCreator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\BootstrapManeger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\BootstrapManeger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\AddAmountPanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\AddAmountPanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|D:\\My project\\Assets\\scripts\\UI\\NewGoalPanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Assets\\scripts\\UI\\NewGoalPanel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -98,160 +134,220 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 6,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CategoryIconSelector.cs",
-              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\CategoryIconSelector.cs",
-              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\CategoryIconSelector.cs",
-              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\CategoryIconSelector.cs",
-              "RelativeToolTip": "Assets\\scripts\\UI\\CategoryIconSelector.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGkAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 7,
+              "Title": "Calendar2.cs",
+              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\Calendar2.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\Calendar2.cs",
+              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\Calendar2.cs",
+              "RelativeToolTip": "Assets\\scripts\\UI\\Calendar2.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAKUAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-23T15:13:48.056Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "CategoryIconLoader.cs",
-              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\CategoryIconLoader.cs",
-              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\CategoryIconLoader.cs",
-              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\CategoryIconLoader.cs",
-              "RelativeToolTip": "Assets\\scripts\\UI\\CategoryIconLoader.cs",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAAB8AAAAiAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-23T15:12:29.383Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CategoryItem.cs",
-              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\CategoryItem.cs",
-              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\CategoryItem.cs",
-              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\CategoryItem.cs",
-              "RelativeToolTip": "Assets\\scripts\\UI\\CategoryItem.cs",
-              "ViewState": "AgIAAH4AAAAAAAAAAAAAAJkAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-23T15:10:44.614Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "CategoryCreator.cs",
-              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\CategoryCreator.cs",
-              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\CategoryCreator.cs",
-              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\CategoryCreator.cs",
-              "RelativeToolTip": "Assets\\scripts\\UI\\CategoryCreator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHgAAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-23T14:49:28.105Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-15T17:13:06.88Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "Database.cs",
-              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\Database\\Database.cs",
-              "RelativeDocumentMoniker": "Assets\\scripts\\Database\\Database.cs",
-              "ToolTip": "D:\\My project\\Assets\\scripts\\Database\\Database.cs",
-              "RelativeToolTip": "Assets\\scripts\\Database\\Database.cs",
-              "ViewState": "AgIAAIMAAAAAAAAAAADwv6QAAAAAAAAAAAAAAA==",
+              "Title": "EditTransactionData.cs",
+              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\EditTransactionData.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\EditTransactionData.cs",
+              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\EditTransactionData.cs",
+              "RelativeToolTip": "Assets\\scripts\\UI\\EditTransactionData.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T22:24:04.468Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "TransactionCreator.cs",
-              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\TransactionCreator.cs",
-              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\TransactionCreator.cs",
-              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\TransactionCreator.cs",
-              "RelativeToolTip": "Assets\\scripts\\UI\\TransactionCreator.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAAB8AAAAZAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-16T13:52:58.777Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CategoryIcon.cs",
-              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\CategoryIcon.cs",
-              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\CategoryIcon.cs",
-              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\CategoryIcon.cs",
-              "RelativeToolTip": "Assets\\scripts\\UI\\CategoryIcon.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-23T15:12:02.292Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "DatabaseManager.cs",
-              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\Database\\DatabaseManager.cs",
-              "RelativeDocumentMoniker": "Assets\\scripts\\Database\\DatabaseManager.cs",
-              "ToolTip": "D:\\My project\\Assets\\scripts\\Database\\DatabaseManager.cs",
-              "RelativeToolTip": "Assets\\scripts\\Database\\DatabaseManager.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T23:23:37.575Z"
+              "WhenOpened": "2026-06-15T15:07:29.677Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 8,
-              "Title": "CategoryItemSelector.cs",
-              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\CategoryItemSelector.cs",
-              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\CategoryItemSelector.cs",
-              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\CategoryItemSelector.cs",
-              "RelativeToolTip": "Assets\\scripts\\UI\\CategoryItemSelector.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-23T15:11:36.877Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "BootstrapManeger.cs",
-              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\BootstrapManeger.cs",
-              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\BootstrapManeger.cs",
-              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\BootstrapManeger.cs",
-              "RelativeToolTip": "Assets\\scripts\\UI\\BootstrapManeger.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAGAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-22T20:57:15.59Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Repository.cs",
-              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\Database\\Repository.cs",
-              "RelativeDocumentMoniker": "Assets\\scripts\\Database\\Repository.cs",
-              "ToolTip": "D:\\My project\\Assets\\scripts\\Database\\Repository.cs",
-              "RelativeToolTip": "Assets\\scripts\\Database\\Repository.cs",
-              "ViewState": "AgIAAH4AAAAAAAAAAAAAAKIAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-13T23:33:36.995Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
               "Title": "AccountCreator.cs",
               "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\AccountCreator.cs",
               "RelativeDocumentMoniker": "Assets\\scripts\\UI\\AccountCreator.cs",
               "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\AccountCreator.cs",
               "RelativeToolTip": "Assets\\scripts\\UI\\AccountCreator.cs",
-              "ViewState": "AgIAAAsBAAAAAAAAAAAcwCMBAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-19T17:16:13.816Z"
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "MainPage.cs",
+              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\MainPage.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\MainPage.cs",
+              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\MainPage.cs",
+              "RelativeToolTip": "Assets\\scripts\\UI\\MainPage.cs",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAEAAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-18T23:04:00.921Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "DatabaseManager.cs",
+              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\Database\\DatabaseManager.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\Database\\DatabaseManager.cs",
+              "ToolTip": "D:\\My project\\Assets\\scripts\\Database\\DatabaseManager.cs",
+              "RelativeToolTip": "Assets\\scripts\\Database\\DatabaseManager.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAArAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T23:23:37.575Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Repository.cs",
+              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\Database\\Repository.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\Database\\Repository.cs",
+              "ToolTip": "D:\\My project\\Assets\\scripts\\Database\\Repository.cs",
+              "RelativeToolTip": "Assets\\scripts\\Database\\Repository.cs",
+              "ViewState": "AgIAAHsAAAAAAAAAAAAUwKEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T23:33:36.995Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Database.cs",
+              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\Database\\Database.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\Database\\Database.cs",
+              "ToolTip": "D:\\My project\\Assets\\scripts\\Database\\Database.cs",
+              "RelativeToolTip": "Assets\\scripts\\Database\\Database.cs",
+              "ViewState": "AgIAAIEAAAAAAAAAAAAAADwAAABTAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-13T22:24:04.468Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "TransactionCreator.cs",
+              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\TransactionCreator.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\TransactionCreator.cs",
+              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\TransactionCreator.cs",
+              "RelativeToolTip": "Assets\\scripts\\UI\\TransactionCreator.cs",
+              "ViewState": "AgIAAOIBAAAAAAAAAAAAANYBAAAeAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-29T14:29:48.386Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "AccountItem2.cs",
+              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\AccountItem2.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\AccountItem2.cs",
+              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\AccountItem2.cs",
+              "RelativeToolTip": "Assets\\scripts\\UI\\AccountItem2.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAAuAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-15T17:40:35.25Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ConfirmDeletePanel.cs",
+              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\ConfirmDeletePanel.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\ConfirmDeletePanel.cs",
+              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\ConfirmDeletePanel.cs",
+              "RelativeToolTip": "Assets\\scripts\\UI\\ConfirmDeletePanel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-15T18:05:49.818Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AccountItem.cs",
+              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\AccountItem.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\AccountItem.cs",
+              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\AccountItem.cs",
+              "RelativeToolTip": "Assets\\scripts\\UI\\AccountItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-16T14:21:31.825Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Calendar.cs",
+              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\Calendar.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\Calendar.cs",
+              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\Calendar.cs",
+              "RelativeToolTip": "Assets\\scripts\\UI\\Calendar.cs",
+              "ViewState": "AgIAAHEAAAAAAAAAAAAswLQAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-15T16:54:35.863Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "TransactionItem.cs",
+              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\TransactionItem.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\TransactionItem.cs",
+              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\TransactionItem.cs",
+              "RelativeToolTip": "Assets\\scripts\\UI\\TransactionItem.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-15T14:33:38.221Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "SelectedDateMemory.cs",
+              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\SelectedDateMemory.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\SelectedDateMemory.cs",
+              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\SelectedDateMemory.cs",
+              "RelativeToolTip": "Assets\\scripts\\UI\\SelectedDateMemory.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-15T16:22:55.24Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "StatisticsType.cs",
+              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\StatisticsType.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\StatisticsType.cs",
+              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\StatisticsType.cs",
+              "RelativeToolTip": "Assets\\scripts\\UI\\StatisticsType.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-29T18:22:36.576Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "StatisticsPage.cs",
+              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\StatisticsPage.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\StatisticsPage.cs",
+              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\StatisticsPage.cs",
+              "RelativeToolTip": "Assets\\scripts\\UI\\StatisticsPage.cs",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAABkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-29T18:23:39.559Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 14,
+              "Title": "CalendarPage.cs",
+              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\CalendarPage.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\CalendarPage.cs",
+              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\CalendarPage.cs",
+              "RelativeToolTip": "Assets\\scripts\\UI\\CalendarPage.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAiwCsAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-19T01:15:43.326Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
               "Title": "NavigationButtons.cs",
               "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\NavigationButtons.cs",
               "RelativeDocumentMoniker": "Assets\\scripts\\UI\\NavigationButtons.cs",
@@ -263,91 +359,55 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 17,
+              "Title": "StatisticsPeriodSelector.cs",
+              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\StatisticsPeriodSelector.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\StatisticsPeriodSelector.cs",
+              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\StatisticsPeriodSelector.cs",
+              "RelativeToolTip": "Assets\\scripts\\UI\\StatisticsPeriodSelector.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACcAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-29T18:21:51.387Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 19,
               "Title": "Models.cs",
               "DocumentMoniker": "D:\\My project\\Assets\\scripts\\Database\\Models.cs",
               "RelativeDocumentMoniker": "Assets\\scripts\\Database\\Models.cs",
               "ToolTip": "D:\\My project\\Assets\\scripts\\Database\\Models.cs",
               "RelativeToolTip": "Assets\\scripts\\Database\\Models.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAEUAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAE4AAAAAAAAAAAAAAD8AAAApAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-13T23:13:55.777Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "AccountItem.cs",
-              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\AccountItem.cs",
-              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\AccountItem.cs",
-              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\AccountItem.cs",
-              "RelativeToolTip": "Assets\\scripts\\UI\\AccountItem.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAACEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-16T14:21:31.825Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "MainPage.cs",
-              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\MainPage.cs",
-              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\MainPage.cs",
-              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\MainPage.cs",
-              "RelativeToolTip": "Assets\\scripts\\UI\\MainPage.cs",
-              "ViewState": "AgIAAMQAAAAAAAAAAAAcwNcAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T23:04:00.921Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 19,
-              "Title": "AccountViewItem.cs",
-              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\AccountViewItem.cs",
-              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\AccountViewItem.cs",
-              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\AccountViewItem.cs",
-              "RelativeToolTip": "Assets\\scripts\\UI\\AccountViewItem.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-18T23:36:10.387Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "Calendar2.cs",
-              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\Calendar2.cs",
-              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\Calendar2.cs",
-              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\Calendar2.cs",
-              "RelativeToolTip": "Assets\\scripts\\UI\\Calendar2.cs",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAAKUAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T00:24:31.889Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "CalendarPage.cs",
-              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\CalendarPage.cs",
-              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\CalendarPage.cs",
-              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\CalendarPage.cs",
-              "RelativeToolTip": "Assets\\scripts\\UI\\CalendarPage.cs",
-              "ViewState": "AgIAACcAAAAAAAAAAAAcwEMAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T01:15:43.326Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "StencilMaterial.cs",
-              "DocumentMoniker": "D:\\My project\\Library\\PackageCache\\com.unity.ugui@1.0.0\\Runtime\\UI\\Core\\StencilMaterial.cs",
-              "RelativeDocumentMoniker": "Library\\PackageCache\\com.unity.ugui@1.0.0\\Runtime\\UI\\Core\\StencilMaterial.cs",
-              "ToolTip": "D:\\My project\\Library\\PackageCache\\com.unity.ugui@1.0.0\\Runtime\\UI\\Core\\StencilMaterial.cs",
-              "RelativeToolTip": "Library\\PackageCache\\com.unity.ugui@1.0.0\\Runtime\\UI\\Core\\StencilMaterial.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAMwC0AAAAzAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-19T01:34:52.572Z"
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 20,
+              "Title": "GreenhousePage.cs",
+              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\GreenhousePage.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\GreenhousePage.cs",
+              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\GreenhousePage.cs",
+              "RelativeToolTip": "Assets\\scripts\\UI\\GreenhousePage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAASAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-08T13:54:15.165Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 21,
+              "Title": "GoalSlotView.cs",
+              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\GoalSlotView.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\GoalSlotView.cs",
+              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\GoalSlotView.cs",
+              "RelativeToolTip": "Assets\\scripts\\UI\\GoalSlotView.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-08T13:53:33.46Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 22,
               "Title": "DayCell.cs",
               "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\DayCell.cs",
               "RelativeDocumentMoniker": "Assets\\scripts\\UI\\DayCell.cs",
@@ -359,15 +419,109 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "Calendar.cs",
-              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\Calendar.cs",
-              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\Calendar.cs",
-              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\Calendar.cs",
-              "RelativeToolTip": "Assets\\scripts\\UI\\Calendar.cs",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAACsAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 23,
+              "Title": "CategoryItem.cs",
+              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\CategoryItem.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\CategoryItem.cs",
+              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\CategoryItem.cs",
+              "RelativeToolTip": "Assets\\scripts\\UI\\CategoryItem.cs",
+              "ViewState": "AgIAAEsAAAAAAAAAAAAAAH8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-05-15T16:54:35.863Z"
+              "WhenOpened": "2026-06-12T01:33:38.831Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 24,
+              "Title": "CategoryIconSelector.cs",
+              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\CategoryIconSelector.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\CategoryIconSelector.cs",
+              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\CategoryIconSelector.cs",
+              "RelativeToolTip": "Assets\\scripts\\UI\\CategoryIconSelector.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAE8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-23T15:13:48.056Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 25,
+              "Title": "CategoryIconLoader.cs",
+              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\CategoryIconLoader.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\CategoryIconLoader.cs",
+              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\CategoryIconLoader.cs",
+              "RelativeToolTip": "Assets\\scripts\\UI\\CategoryIconLoader.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAABCAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-23T15:12:29.383Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 26,
+              "Title": "CategoryIcon.cs",
+              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\CategoryIcon.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\CategoryIcon.cs",
+              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\CategoryIcon.cs",
+              "RelativeToolTip": "Assets\\scripts\\UI\\CategoryIcon.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAZAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-23T15:12:02.292Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 27,
+              "Title": "CategoryCreator.cs",
+              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\CategoryCreator.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\CategoryCreator.cs",
+              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\CategoryCreator.cs",
+              "RelativeToolTip": "Assets\\scripts\\UI\\CategoryCreator.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAGEAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-23T14:49:28.105Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 28,
+              "Title": "BootstrapManeger.cs",
+              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\BootstrapManeger.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\BootstrapManeger.cs",
+              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\BootstrapManeger.cs",
+              "RelativeToolTip": "Assets\\scripts\\UI\\BootstrapManeger.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-22T20:57:15.59Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 29,
+              "Title": "AddAmountPanel.cs",
+              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\AddAmountPanel.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\AddAmountPanel.cs",
+              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\AddAmountPanel.cs",
+              "RelativeToolTip": "Assets\\scripts\\UI\\AddAmountPanel.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACgBAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-08T13:55:04.557Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 30,
+              "Title": "NewGoalPanel.cs",
+              "DocumentMoniker": "D:\\My project\\Assets\\scripts\\UI\\NewGoalPanel.cs",
+              "RelativeDocumentMoniker": "Assets\\scripts\\UI\\NewGoalPanel.cs",
+              "ToolTip": "D:\\My project\\Assets\\scripts\\UI\\NewGoalPanel.cs",
+              "RelativeToolTip": "Assets\\scripts\\UI\\NewGoalPanel.cs",
+              "ViewState": "AgIAAGIAAAAAAAAAAAAjwIYAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-06-15T13:43:51.413Z"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 1302,
+          "SelectedChildIndex": -1,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{d78612c7-9962-4b83-95d9-268046dad23a}"
             }
           ]
         }

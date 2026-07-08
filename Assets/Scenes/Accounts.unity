@@ -748,7 +748,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8384413619487624710, guid: ff6e80d52ccdb3b4daa29128df321441, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8384413619487624710, guid: ff6e80d52ccdb3b4daa29128df321441, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2304,6 +2304,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c74ffc7b657a5694fb44c0bf0f19fe48, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  headerText: {fileID: 2052598426}
   nameInput: {fileID: 239628578}
   nameCounter: {fileID: 926625895}
   currencyText: {fileID: 451406645}
@@ -2315,6 +2316,7 @@ MonoBehaviour:
   currencyEUR: {fileID: 893967098}
   currencyRUB: {fileID: 6991324}
   amountInput: {fileID: 903452579}
+  amountLabel: {fileID: 1249825924}
   colorContainer: {fileID: 932340059}
   colorCirclePrefab: {fileID: 760619452600393527, guid: 290495954f068464595b4bf42b60e38f, type: 3}
   saveButton: {fileID: 836804352}

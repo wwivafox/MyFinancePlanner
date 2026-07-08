@@ -3,11 +3,9 @@ using UnityEngine.UI;
 
 public class CategoryIcon : MonoBehaviour
 {
-    public Image iconImage;          // Картинка иконки
-    public Button button;            // Кнопка по иконке
+    public Image iconImage;         
+    public Button button;
     [HideInInspector] public string iconName;
-
-
 
     private System.Action<string> onClick;
     private CanvasGroup canvasGroup;
@@ -27,7 +25,6 @@ public class CategoryIcon : MonoBehaviour
         iconName = name;
         onClick = onClickCallback;
 
-        // ВАЖНО: подставляем правильный спрайт
         iconImage.sprite = CategoryIconLoader.GetIcon(name);
 
         SetSelected(isSelected);

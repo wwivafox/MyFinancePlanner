@@ -10,19 +10,18 @@ public class Database
 
     public void Init()
     {
-        string dbName = "finance.db";
+        string dbName = "finance1.db";
         string dbPath = Path.Combine(Application.persistentDataPath, dbName);
 
         Debug.Log($"DB Init, path = {dbPath}");
 
-        // Проверка: если файл пустой или повреждён — пересоздать
-        if (!File.Exists(dbPath) || new FileInfo(dbPath).Length < 100)
+        if (!File.Exists(dbPath))
         {
-            Debug.Log("DB missing or invalid, copying from StreamingAssets...");
-            CopyDatabaseFromStreamingAssets(dbPath);
+            Debug.Log("DB missing — creating new empty DB");
         }
 
-        // Открываем SQLite
+
+
         try
         {
             connection = new SQLiteConnection(
@@ -38,7 +37,6 @@ public class Database
             return;
         }
 
-        // Создаём таблицы
         try
         {
             connection.CreateTable<Account>();
@@ -58,30 +56,30 @@ public class Database
         }
     }
 
-    private void CopyDatabaseFromStreamingAssets(string targetPath)
-    {
-        string sourcePath = Path.Combine(Application.streamingAssetsPath, "finance.db");
+//    private void CopyDatabaseFromStreamingAssets(string targetPath)
+//    {
+//        string sourcePath = Path.Combine(Application.streamingAssetsPath, "finance1.db");
 
-#if UNITY_ANDROID
-        var request = UnityEngine.Networking.UnityWebRequest.Get(sourcePath);
-        request.SendWebRequest();
+//#if UNITY_ANDROID
+//        var request = UnityEngine.Networking.UnityWebRequest.Get(sourcePath);
+//        request.SendWebRequest();
 
-        while (!request.isDone) {}
+//        while (!request.isDone) {}
 
-        if (request.result == UnityEngine.Networking.UnityWebRequest.Result.Success)
-        {
-            File.WriteAllBytes(targetPath, request.downloadHandler.data);
-            Debug.Log("DB copied from StreamingAssets (Android)");
-        }
-        else
-        {
-            Debug.LogError("DB copy error: " + request.error);
-        }
-#else
-        File.Copy(sourcePath, targetPath, true);
-        Debug.Log("DB copied from StreamingAssets (Editor/PC)");
-#endif
-    }
+//        if (request.result == UnityEngine.Networking.UnityWebRequest.Result.Success)
+//        {
+//            File.WriteAllBytes(targetPath, request.downloadHandler.data);
+//            Debug.Log("DB copied from StreamingAssets (Android)");
+//        }
+//        else
+//        {
+//            Debug.LogError("DB copy error: " + request.error);
+//        }
+//#else
+//        File.Copy(sourcePath, targetPath, true);
+//        Debug.Log("DB copied from StreamingAssets (Editor/PC)");
+//#endif
+//    }
 
     private void SeedData()
     {

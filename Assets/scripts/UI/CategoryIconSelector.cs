@@ -1,79 +1,79 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
-using UnityEngine.UI;
+﻿    using System.Collections.Generic;
+    using UnityEngine;
+    using UnityEngine.UI;
 
-public class CategoryIconSelector : MonoBehaviour
-{
-    public Transform content;
-    public GameObject iconPrefab;
-
-    public Button cancelButton;
-    public Button saveButton;
-
-    public ScrollRect mainScroll;
-
-    private string selectedIcon;
-    private System.Action<string> onSave;
-
-    private void Awake()
+    public class CategoryIconSelector : MonoBehaviour
     {
-        gameObject.SetActive(false);
-    }
+        public Transform content;
+        public GameObject iconPrefab;
 
-    public void Open(string currentIcon, System.Action<string> onSaveCallback)
-    {
-        onSave = onSaveCallback;
+        public Button cancelButton;
+        public Button saveButton;
 
-        if (string.IsNullOrEmpty(currentIcon))
-            currentIcon = CategoryIconLoader.GetDefaultIcon().name;
+        public ScrollRect mainScroll;
 
-        selectedIcon = currentIcon;
+        private string selectedIcon;
+        private System.Action<string> onSave;
 
-        if (mainScroll != null)
-            mainScroll.enabled = false;
-
-        foreach (Transform child in content)
-            Destroy(child.gameObject);
-
-        foreach (var iconName in CategoryIconLoader.GetAllIcons())
+        private void Awake()
         {
-            var item = Instantiate(iconPrefab, content);
-            var icon = item.GetComponent<CategoryIcon>();
-
-            bool isSelected = iconName == currentIcon;
-            icon.Setup(iconName, isSelected, OnSelect);
+            gameObject.SetActive(false);
         }
 
-        gameObject.SetActive(true);
-
-        saveButton.onClick.RemoveAllListeners();
-        saveButton.onClick.AddListener(() =>
+        public void Open(string currentIcon, System.Action<string> onSaveCallback)
         {
-            onSave?.Invoke(selectedIcon);
-            Close();
-        });
+            onSave = onSaveCallback;
 
-        cancelButton.onClick.RemoveAllListeners();
-        cancelButton.onClick.AddListener(Close);
-    }
+            if (string.IsNullOrEmpty(currentIcon))
+                currentIcon = CategoryIconLoader.GetDefaultIcon().name;
 
-    private void Close()
-    {
-        if (mainScroll != null)
-            mainScroll.enabled = true;
+            selectedIcon = currentIcon;
 
-        gameObject.SetActive(false);
-    }
+            if (mainScroll != null)
+                mainScroll.enabled = false;
 
-    private void OnSelect(string iconName)
-    {
-        selectedIcon = iconName;
+            foreach (Transform child in content)
+                Destroy(child.gameObject);
 
-        foreach (Transform child in content)
+            foreach (var iconName in CategoryIconLoader.GetAllIcons())
+            {
+                var item = Instantiate(iconPrefab, content);
+                var icon = item.GetComponent<CategoryIcon>();
+
+                bool isSelected = iconName == currentIcon;
+                icon.Setup(iconName, isSelected, OnSelect);
+            }
+
+            gameObject.SetActive(true);
+
+            saveButton.onClick.RemoveAllListeners();
+            saveButton.onClick.AddListener(() =>
+            {
+                onSave?.Invoke(selectedIcon);
+                Close();
+            });
+
+            cancelButton.onClick.RemoveAllListeners();
+            cancelButton.onClick.AddListener(Close);
+        }
+
+        private void Close()
         {
-            var icon = child.GetComponent<CategoryIcon>();
-            if (icon != null)
-                icon.SetSelected(icon.iconName == iconName);
+            if (mainScroll != null)
+                mainScroll.enabled = true;
+
+            gameObject.SetActive(false);
+        }
+
+        private void OnSelect(string iconName)
+        {
+            selectedIcon = iconName;
+
+            foreach (Transform child in content)
+            {
+                var icon = child.GetComponent<CategoryIcon>();
+                if (icon != null)
+                    icon.SetSelected(icon.iconName == iconName);
+            }
         }
     }
-}

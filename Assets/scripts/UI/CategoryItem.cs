@@ -4,57 +4,24 @@ using TMPro;
 
 public class CategoryItem : MonoBehaviour
 {
-    [Header("UI")]
     public Image icon;
     public TMP_InputField nameField;
-
     public Button editButton;
     public Button deleteButton;
+    public Button iconButton;
 
     public Sprite editSprite;
     public Sprite saveSprite;
 
-    [Header("Icon Selector")]
-    public CategoryIconSelector iconSelector;
+    [HideInInspector] public CategoryIconSelector iconSelector;
 
     private Category category;
-    private Button iconButton;
-
-    private void Awake()
-    {
-        iconButton = icon.GetComponent<Button>();
-
-        var cg = GetComponent<CanvasGroup>();
-        if (cg != null)
-            Debug.Log("[CategoryItem] Awake: CanvasGroup.ALPHA = " + cg.alpha + " на объекте " + name);
-        else
-            Debug.Log("[CategoryItem] Awake: CanvasGroup НЕТ на объекте " + name);
-    }
-
-    public void SetAlpha(float value)
-{
-    var cg = GetComponent<CanvasGroup>();
-    if (cg == null)
-    {
-        Debug.Log("[CategoryItem] SetAlpha(" + value + ") НО CanvasGroup НЕТ на " + name);
-        return;
-    }
-
-    Debug.Log("[CategoryItem] SetAlpha(" + value + ") на " + name + " (БЫЛО " + cg.alpha + ")");
-    cg.alpha = value;
-}
-
-    public void SetInteractable(bool value)
-    {
-        nameField.interactable = value;
-        editButton.interactable = value;
-        deleteButton.interactable = value;
-        iconButton.interactable = value;
-    }
+    private bool isNew = false;
 
     public void Setup(Category cat)
     {
         category = cat;
+        isNew = false;
 
         nameField.text = cat.Name;
         nameField.interactable = false;
@@ -62,18 +29,20 @@ public class CategoryItem : MonoBehaviour
         icon.sprite = CategoryIconLoader.GetIcon(cat.IconName);
         iconButton.interactable = false;
 
-        editButton.onClick.RemoveAllListeners();
-        deleteButton.onClick.RemoveAllListeners();
-        iconButton.onClick.RemoveAllListeners();
-
         editButton.image.sprite = editSprite;
+        editButton.onClick.RemoveAllListeners();
         editButton.onClick.AddListener(OnEdit);
+
+        deleteButton.onClick.RemoveAllListeners();
         deleteButton.onClick.AddListener(OnDelete);
+
+        CategoryCreator.Instance.ResetEditingMode();
     }
 
     public void SetupNew(Category cat)
     {
         category = cat;
+        isNew = true;
 
         nameField.text = "";
         nameField.interactable = true;
@@ -81,35 +50,29 @@ public class CategoryItem : MonoBehaviour
         icon.sprite = CategoryIconLoader.GetDefaultIcon();
         iconButton.interactable = true;
 
-        editButton.onClick.RemoveAllListeners();
-        deleteButton.onClick.RemoveAllListeners();
-        iconButton.onClick.RemoveAllListeners();
-
         editButton.image.sprite = saveSprite;
+        editButton.onClick.RemoveAllListeners();
         editButton.onClick.AddListener(OnSaveNew);
 
+        deleteButton.onClick.RemoveAllListeners();
         deleteButton.onClick.AddListener(OnCancelNew);
 
-        iconButton.onClick.AddListener(OpenIconSelector);
+        CategoryCreator.Instance.SetEditingMode(this);
     }
 
     private void OnEdit()
     {
-        CategoryCreator.Instance.SetEditingMode(this);
-
         nameField.interactable = true;
         iconButton.interactable = true;
 
-        editButton.onClick.RemoveAllListeners();
-        deleteButton.onClick.RemoveAllListeners();
-        iconButton.onClick.RemoveAllListeners();
-
         editButton.image.sprite = saveSprite;
+        editButton.onClick.RemoveAllListeners();
         editButton.onClick.AddListener(OnSaveEdit);
 
+        deleteButton.onClick.RemoveAllListeners();
         deleteButton.onClick.AddListener(OnCancelEdit);
 
-        iconButton.onClick.AddListener(OpenIconSelector);
+        CategoryCreator.Instance.SetEditingMode(this);
     }
 
     private void OnSaveEdit()
@@ -117,24 +80,15 @@ public class CategoryItem : MonoBehaviour
         category.Name = nameField.text;
         DatabaseManager.Instance.DB.GetConnection().Update(category);
 
-        nameField.interactable = false;
-        iconButton.interactable = false;
-
-        editButton.onClick.RemoveAllListeners();
-        deleteButton.onClick.RemoveAllListeners();
-        iconButton.onClick.RemoveAllListeners();
-
-        editButton.image.sprite = editSprite;
-        editButton.onClick.AddListener(OnEdit);
-        deleteButton.onClick.AddListener(OnDelete);
-
         CategoryCreator.Instance.ResetEditingMode();
+        Setup(category);
     }
 
     private void OnDelete()
     {
         DatabaseManager.Instance.DB.GetConnection().Delete(category);
         Destroy(gameObject);
+        CategoryCreator.Instance.ResetEditingMode();
     }
 
     private void OnSaveNew()
@@ -145,38 +99,37 @@ public class CategoryItem : MonoBehaviour
         category.Name = nameField.text;
         DatabaseManager.Instance.DB.GetConnection().Insert(category);
 
+        CategoryCreator.Instance.ResetEditingMode();
         Setup(category);
     }
 
     private void OnCancelNew()
     {
+        CategoryCreator.Instance.ResetEditingMode();
         Destroy(gameObject);
     }
 
     private void OnCancelEdit()
     {
         nameField.text = category.Name;
-
-        nameField.interactable = false;
-        iconButton.interactable = false;
-
-        editButton.onClick.RemoveAllListeners();
-        deleteButton.onClick.RemoveAllListeners();
-        iconButton.onClick.RemoveAllListeners();
-
-        editButton.image.sprite = editSprite;
-        editButton.onClick.AddListener(OnEdit);
-        deleteButton.onClick.AddListener(OnDelete);
-
         CategoryCreator.Instance.ResetEditingMode();
+        Setup(category);
     }
 
-    void OpenIconSelector()
+    private void Start()
     {
-        iconSelector.Open(category.IconName, (newIcon) =>
+        iconButton.onClick.AddListener(() =>
         {
-            category.IconName = newIcon;
-            icon.sprite = CategoryIconLoader.GetIcon(newIcon);
+            if (!iconButton.interactable) return;
+
+            iconSelector.Open(category.IconName, (newIcon) =>
+            {
+                category.IconName = newIcon;
+                icon.sprite = CategoryIconLoader.GetIcon(newIcon);
+
+                if (!isNew)
+                    DatabaseManager.Instance.DB.GetConnection().Update(category);
+            });
         });
     }
 }

@@ -18,10 +18,6 @@ public class TransactionCreator : MonoBehaviour
     public Transform categoryContainer;
     public GameObject categoryButtonPrefab;
 
-    private bool isIncome = true;
-    private string selectedCategory = null;
-    private Button lastSelectedCategoryButton;
-
     [Header("UI — Сумма")]
     public TMP_InputField amountInput;
 
@@ -36,11 +32,20 @@ public class TransactionCreator : MonoBehaviour
     public Button createButton;
     private CanvasGroup createButtonCanvas;
 
-    // БД
+    [Header("UI — Заголовок")]
+    public TMP_Text titleText;
+
     private Repository repo;
     private List<Category> loadedCategories;
     private List<Account> loadedAccounts;
     private Account selectedAccount;
+
+    private bool isIncome = true;
+    private string selectedCategory = null;
+    private Button lastSelectedCategoryButton;
+
+    private bool isEditMode = false;
+    private Transaction editingTransaction;
 
     private static TransactionCreator instance;
 
@@ -55,9 +60,8 @@ public class TransactionCreator : MonoBehaviour
         instance = this;
 
         createButton.onClick.RemoveAllListeners();
-        createButton.onClick.AddListener(CreateTransaction);
+        createButton.onClick.AddListener(CreateOrSaveTransaction);
     }
-
 
     private System.Collections.IEnumerator Start()
     {
@@ -70,39 +74,43 @@ public class TransactionCreator : MonoBehaviour
         repo = new Repository();
 
         loadedCategories = repo.GetCategories();
-        while (loadedCategories == null)
-            yield return null;
-
         loadedAccounts = repo.GetAccounts();
-        while (loadedAccounts == null)
-            yield return null;
+
+        createButtonCanvas = createButton.GetComponent<CanvasGroup>()
+                             ?? createButton.gameObject.AddComponent<CanvasGroup>();
 
         GenerateAccountsUI();
-
-        createButtonCanvas = createButton.GetComponent<CanvasGroup>();
-        if (createButtonCanvas == null)
-            createButtonCanvas = createButton.gameObject.AddComponent<CanvasGroup>();
-
-        if (loadedAccounts.Count > 0)
-            SelectAccount(loadedAccounts[0]);
 
         incomeTab.onClick.AddListener(() => SwitchType(true));
         expenseTab.onClick.AddListener(() => SwitchType(false));
 
-        selectedDate = DateTime.Now.Date;
-
         amountInput.onValueChanged.AddListener(OnAmountChanged);
         amountInput.onEndEdit.AddListener(FormatAmount);
-
         descriptionInput.onValueChanged.AddListener((string v) => OnDescriptionChanged(v));
 
+        selectedDate = DateTime.Now.Date;
+
+        selectedDate = DateTime.Now.Date;
+
+        if (EditTransactionData.EditingTransaction != null)
+        {
+            isEditMode = true;
+            editingTransaction = EditTransactionData.EditingTransaction;
+            FillEditMode();
+        }
+        else
+        {
+            SwitchType(true);
+            if (loadedAccounts.Count > 0)
+                SelectAccount(loadedAccounts[0]);
+        }
+
+
+
+
         UpdateCreateButtonState();
-        SwitchType(true);
     }
 
-    // -----------------------------
-    // СЧЕТА
-    // -----------------------------
     private void GenerateAccountsUI()
     {
         foreach (Transform child in accountsContainer)
@@ -141,9 +149,6 @@ public class TransactionCreator : MonoBehaviour
         UpdateCreateButtonState();
     }
 
-    // -----------------------------
-    // КАТЕГОРИИ
-    // -----------------------------
     private void SwitchType(bool income)
     {
         isIncome = income;
@@ -214,26 +219,20 @@ public class TransactionCreator : MonoBehaviour
         }
 
         CanvasGroup selectedCg = btn.GetComponent<CanvasGroup>();
-        if (selectedCg != null)
-            selectedCg.alpha = 1f;
+        if (selectedCg == null) selectedCg = btn.gameObject.AddComponent<CanvasGroup>();
+        selectedCg.alpha = 1f;
 
         lastSelectedCategoryButton = btn;
 
         UpdateCreateButtonState();
     }
 
-    // -----------------------------
-    // ДАТА
-    // -----------------------------
     public void SetDate(DateTime date)
     {
         selectedDate = date;
         UpdateCreateButtonState();
     }
 
-    // -----------------------------
-    // СУММА — ввод и форматирование
-    // -----------------------------
     private void OnAmountChanged(string value)
     {
         if (string.IsNullOrEmpty(value))
@@ -271,7 +270,6 @@ public class TransactionCreator : MonoBehaviour
         if (string.IsNullOrWhiteSpace(value))
             return;
 
-        // приводим к инвариантному виду: точка как разделитель
         string raw = value.Trim()
                           .Replace(" ", "")
                           .Replace("\u200B", "")
@@ -282,7 +280,6 @@ public class TransactionCreator : MonoBehaviour
                            CultureInfo.InvariantCulture,
                            out float number))
         {
-            // форматируем тоже через InvariantCulture
             amountInput.text = number.ToString("0.00", CultureInfo.InvariantCulture);
         }
         else
@@ -293,9 +290,6 @@ public class TransactionCreator : MonoBehaviour
         UpdateCreateButtonState();
     }
 
-    // -----------------------------
-    // ОПИСАНИЕ
-    // -----------------------------
     public void OnDescriptionChanged(string _)
     {
         const int maxLen = 100;
@@ -315,10 +309,47 @@ public class TransactionCreator : MonoBehaviour
         descriptionCounter.text = $"{real.Length}/{maxLen}";
     }
 
-    // -----------------------------
-    // СОЗДАНИЕ ТРАНЗАКЦИИ
-    // -----------------------------
-    public void CreateTransaction()
+    private void FillEditMode()
+    {
+        titleText.text = "Редактирование транзакции";
+        
+        amountInput.text = editingTransaction.Amount.ToString("0.00", CultureInfo.InvariantCulture);
+
+       
+        descriptionInput.text = editingTransaction.Description;
+        descriptionCounter.text = $"{descriptionInput.text.Length}/100";
+
+        selectedDate = DateTime.ParseExact(editingTransaction.Date, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+
+        SelectedDateMemory.LastSelectedDate = selectedDate;
+        SelectedDateMemory.MonthToOpen = selectedDate;
+        
+        selectedAccount = loadedAccounts.Find(a => a.Id == editingTransaction.AccountId);
+        if (selectedAccount != null)
+            SelectAccount(selectedAccount);
+
+        Category cat = loadedCategories.Find(c => c.Id == editingTransaction.CategoryId);
+
+        if (cat != null)
+        {
+            SwitchType(cat.IsIncome);
+
+            foreach (Transform child in categoryContainer)
+            {
+                TMP_Text txt = child.GetComponentInChildren<TMP_Text>();
+                if (txt != null && txt.text == cat.Name)
+                {
+                    SelectCategory(cat.Name, child.GetComponent<Button>());
+                    break;
+                }
+            }
+        }
+
+        createButton.GetComponentInChildren<TMP_Text>().text = "Сохранить";
+    }
+
+
+    private void CreateOrSaveTransaction()
     {
         if (!ValidateInput())
             return;
@@ -330,12 +361,24 @@ public class TransactionCreator : MonoBehaviour
                             NumberStyles.Any,
                             CultureInfo.InvariantCulture,
                             out amount))
-        {
-            Debug.LogError("❌ Ошибка парсинга суммы в CreateTransaction()");
             return;
-        }
 
         Category cat = loadedCategories.Find(c => c.Name == selectedCategory && c.IsIncome == isIncome);
+
+        if (isEditMode)
+        {
+            editingTransaction.AccountId = selectedAccount.Id;
+            editingTransaction.CategoryId = cat.Id;
+            editingTransaction.Amount = amount;
+            editingTransaction.Date = selectedDate.ToString("yyyy-MM-dd");
+            editingTransaction.Description = descriptionInput.text;
+
+            repo.UpdateTransaction(editingTransaction);
+
+            EditTransactionData.EditingTransaction = null;
+            SceneManager.LoadScene("MainPage");
+            return;
+        }
 
         Transaction t = new Transaction
         {
@@ -354,6 +397,11 @@ public class TransactionCreator : MonoBehaviour
             selectedAccount.StartAmount -= amount;
 
         repo.UpdateAccount(selectedAccount);
+
+        ResetForm();
+        SelectedDateMemory.MonthToOpen = null;
+        SelectedDateMemory.LastSelectedDate = null;
+
 
         SceneManager.LoadScene("MainPage");
     }
@@ -409,33 +457,41 @@ public class TransactionCreator : MonoBehaviour
         createButtonCanvas.alpha = valid ? 1f : 0.5f;
     }
 
-    private void ClearForm()
+    public void ResetForm()
     {
+        isEditMode = false;
+        editingTransaction = null;
+        EditTransactionData.EditingTransaction = null;
+
+        selectedCategory = null;
+        lastSelectedCategoryButton = null;
+
+        selectedAccount = null;
+
         amountInput.text = "";
         descriptionInput.text = "";
-        selectedCategory = null;
+        descriptionCounter.text = "0/100";
 
-        if (lastSelectedCategoryButton != null)
-            lastSelectedCategoryButton.interactable = true;
+        selectedDate = DateTime.Now.Date;
 
-        lastSelectedCategoryButton = null;
+      
+        isIncome = true;
+        SwitchType(true);
+
+        if (loadedAccounts != null && loadedAccounts.Count > 0)
+            SelectAccount(loadedAccounts[0]);
+
+        UpdateCreateButtonState();
     }
 
-    private string CleanAmount(string raw)
+    private void OnDisable()
     {
-        if (raw == null)
-            return "";
-
-        return raw
-            .Replace(" ", "")
-            .Replace("\u200B", "")
-            .Replace("\u2060", "")
-            .Replace("\uFEFF", "")
-            .Replace("\n", "")
-            .Replace("\r", "")
-            .Replace(",", ".")
-            .Trim();
+        if (isEditMode)
+        {
+            EditTransactionData.EditingTransaction = null;
+            isEditMode = false;
+        }
     }
 
-    
+
 }

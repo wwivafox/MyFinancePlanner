@@ -11,13 +11,9 @@ public class DatabaseManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-
-            Debug.Log("DBManager Awake() BEGIN");
-
             DB = new Database();
             DB.Init();
 
-            Debug.Log("DBManager Awake() END");
         }
         else
         {

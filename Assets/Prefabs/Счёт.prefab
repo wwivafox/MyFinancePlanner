@@ -160,6 +160,7 @@ GameObject:
   - component: {fileID: 1530609497238030109}
   - component: {fileID: 7589825572936853032}
   - component: {fileID: 2728082764427181528}
+  - component: {fileID: -5019208673293637319}
   m_Layer: 5
   m_Name: "\u0421\u0447\u0451\u0442"
   m_TagString: Untagged
@@ -225,3 +226,23 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &-5019208673293637319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4726703702666674454}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfb3a12b66a010f41869731e2dddecd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotsContainer: {fileID: 0}
+  slotPrefab: {fileID: 0}
+  addButton: {fileID: 0}
+  prevPageButton: {fileID: 0}
+  nextPageButton: {fileID: 0}
+  pageLabel: {fileID: 0}
+  newGoalPanel: {fileID: 0}
+  addAmountPanel: {fileID: 0}

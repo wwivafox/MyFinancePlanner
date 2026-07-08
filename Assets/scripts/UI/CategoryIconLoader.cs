@@ -11,12 +11,22 @@ public class CategoryIconLoader : MonoBehaviour
         var sprites = Resources.LoadAll<Sprite>("Sprites/Category");
 
         foreach (var s in sprites)
+        {
             icons[s.name] = s;
+            Debug.Log("[IconLoader] Загружена иконка: " + s.name);
+        }
     }
 
     public static Sprite GetIcon(string name)
     {
         if (icons == null) Load();
+
+        if (string.IsNullOrEmpty(name) || !icons.ContainsKey(name))
+        {
+            Debug.LogWarning("[IconLoader] Иконка не найдена: " + name + " → использую Еда");
+            return GetDefaultIcon();
+        }
+
         return icons[name];
     }
 

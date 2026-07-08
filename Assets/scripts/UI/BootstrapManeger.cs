@@ -5,11 +5,10 @@ using UnityEngine.SceneManagement;
 
 public class BootstrapManeger : MonoBehaviour
 {
-    // Start is called before the first frame update
     void Start()
     {
         SceneManager.LoadScene("MainPage");
-      
+        Debug.Log("START");
     }
 
 

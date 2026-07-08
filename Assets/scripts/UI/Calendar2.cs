@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System;
 using TMPro;
-using System.Globalization; // ★ нужно для русского месяца
+using System.Globalization; 
 
 public class Calendar2 : MonoBehaviour
 {
@@ -41,8 +41,6 @@ public class Calendar2 : MonoBehaviour
 
     public CalendarPage calendarPage;
 
-
-    // Выбор даты
     private DateTime? selectedDay = null;
     private DayCell lastSelectedCell = null;
 
@@ -56,21 +54,15 @@ public class Calendar2 : MonoBehaviour
         monthPickerPanel.SetActive(false);
     }
 
-    // ------------------------------
-    // Основной календарь
-    // ------------------------------
 
     public void GenerateCalendar(int year, int month)
     {
-        // ★ Новый формат заголовка: Месяц + перенос строки + Год
         string monthName = new DateTime(year, month, 1)
             .ToString("MMMM", CultureInfo.GetCultureInfo("ru-RU"));
 
         monthName = char.ToUpper(monthName[0]) + monthName.Substring(1);
-
         monthLabel.text = monthName + "\n" + year;
 
-        // Удаляем старые ячейки (кроме заголовков дней недели)
         for (int i = grid.childCount - 1; i >= 7; i--)
             Destroy(grid.GetChild(i).gameObject);
 
@@ -99,14 +91,11 @@ public class Calendar2 : MonoBehaviour
             CanvasGroup cg = cell.GetComponent<CanvasGroup>();
             if (cg == null) cg = cell.AddComponent<CanvasGroup>();
 
-            // Базовый цвет
             dc.text.color = new Color32(0x5B, 0x5A, 0x5A, 0xFF);
 
-            // Сегодня — зелёный
             if (dc.date == today)
                 dc.text.color = new Color32(0x34, 0xC7, 0x59, 0xFF);
 
-            // Будущие даты — недоступны
             if (dc.date > today)
             {
                 btn.interactable = false;
@@ -128,21 +117,22 @@ public class Calendar2 : MonoBehaviour
         lastSelectedCell = null;
     }
 
-    // ------------------------------
-    // Выбор даты
-    // ------------------------------
 
     private void OnDateSelected(DayCell dc)
     {
-        if (selectedDay == dc.date)
+        if (selectedDay.HasValue && selectedDay.Value.Date == dc.date.Date)
         {
             selectedDay = null;
+
             dc.background.alpha = 0f;
 
             if (dc.date != today)
                 dc.text.color = new Color32(0x5B, 0x5A, 0x5A, 0xFF);
 
             lastSelectedCell = null;
+
+            calendarPage.ShowTransactionsForDate(null);
+
             return;
         }
 
@@ -155,12 +145,12 @@ public class Calendar2 : MonoBehaviour
         }
 
         selectedDay = dc.date;
+
         dc.background.alpha = 1f;
         dc.text.color = new Color32(0x34, 0xC7, 0x59, 0xFF);
 
         lastSelectedCell = dc;
 
-        // ⭐ ВЫЗЫВАЕМ CalendarPage
         calendarPage.ShowTransactionsForDate(dc.date);
     }
 
@@ -170,9 +160,8 @@ public class Calendar2 : MonoBehaviour
         return selectedDay;
     }
 
-    // ------------------------------
-    // Month Picker
-    // ------------------------------
+    // Месяц
+ 
 
     public void OpenMonthPicker()
     {
@@ -260,9 +249,7 @@ public class Calendar2 : MonoBehaviour
         monthPickerPanel.SetActive(false);
     }
 
-    // ------------------------------
-    // Year Picker
-    // ------------------------------
+    // Год
 
     public void UpdateYearCarousel()
     {
@@ -299,9 +286,9 @@ public class Calendar2 : MonoBehaviour
         UpdateDateCarousel();
     }
 
-    // ------------------------------
+   
     // Свайпы
-    // ------------------------------
+
 
     private void HandleSwipe(Vector2 swipeDelta, Vector2 startPos, float swipeTime)
     {

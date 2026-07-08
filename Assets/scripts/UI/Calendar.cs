@@ -1,8 +1,7 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
 using TMPro;
 
 public class Calendar : MonoBehaviour
@@ -31,29 +30,27 @@ public class Calendar : MonoBehaviour
     private int selectedMonth;
     private int selectedYear;
 
+    public TransactionCreator transactionCreator;
+
     private Vector2 swipeStartPos;
     private float swipeStartTime;
     private float swipeEndTime;
     private bool isSwiping = false;
 
     public ScrollRect mainScroll;
-
     public CanvasGroup nextMonthCanvasGroup;
 
-    public TransactionCreator transactionCreator;
-
-
-    // Выбор даты
     private DateTime? selectedDay = null;
     private DayCell lastSelectedCell = null;
-
-
-
 
     void Start()
     {
         today = DateTime.Now.Date;
-        currentDate = today;
+
+        if (SelectedDateMemory.MonthToOpen.HasValue)
+            currentDate = SelectedDateMemory.MonthToOpen.Value;
+        else
+            currentDate = today;
 
         GenerateCalendar(currentDate.Year, currentDate.Month);
         monthPickerPanel.SetActive(false);
@@ -61,28 +58,6 @@ public class Calendar : MonoBehaviour
         UpdateNextMonthButton();
     }
 
-    // ------------------------------
-    // Основной календарь
-    // ------------------------------
-
-    public void NextMonth()
-    {
-        DateTime next = currentDate.AddMonths(1);
-
-        if (next.Year > today.Year) return;
-        if (next.Year == today.Year && next.Month > today.Month) return;
-
-        currentDate = next;
-        GenerateCalendar(currentDate.Year, currentDate.Month);
-        UpdateNextMonthButton();
-    }
-
-    public void PrevMonth()
-    {
-        currentDate = currentDate.AddMonths(-1);
-        GenerateCalendar(currentDate.Year, currentDate.Month);
-        UpdateNextMonthButton();
-    }
 
     public void GenerateCalendar(int year, int month)
     {
@@ -116,14 +91,11 @@ public class Calendar : MonoBehaviour
             CanvasGroup cg = cell.GetComponent<CanvasGroup>();
             if (cg == null) cg = cell.AddComponent<CanvasGroup>();
 
-            // Базовый цвет
             dc.text.color = new Color32(0x5B, 0x5A, 0x5A, 0xFF);
 
-            // Сегодня — зелёный
             if (dc.date == today)
                 dc.text.color = new Color32(0x34, 0xC7, 0x59, 0xFF);
 
-            // 🔥 БУДУЩИЕ ДАТЫ — НЕДОСТУПНЫ
             if (dc.date > today)
             {
                 btn.interactable = false;
@@ -141,27 +113,41 @@ public class Calendar : MonoBehaviour
             }
         }
 
+        if (SelectedDateMemory.LastSelectedDate.HasValue)
+        {
+            DateTime saved = SelectedDateMemory.LastSelectedDate.Value;
 
+            foreach (Transform child in grid)
+            {
+                DayCell dc = child.GetComponent<DayCell>();
+                if (dc != null && dc.date.Date == saved.Date)
+                {
+                    dc.background.alpha = 1f;
+                    dc.text.color = new Color32(0x34, 0xC7, 0x59, 0xFF);
 
-        selectedDay = null;
-        lastSelectedCell = null;
+                    selectedDay = saved;
+                    lastSelectedCell = dc;
+                    break;
+                }
+            }
+        }
     }
-
-    // ------------------------------
-    // Выбор даты
-    // ------------------------------
 
     private void OnDateSelected(DayCell dc)
     {
-        if (selectedDay == dc.date)
+        if (selectedDay.HasValue && selectedDay.Value.Date == dc.date.Date)
         {
             selectedDay = null;
+            SelectedDateMemory.LastSelectedDate = null;
+
             dc.background.alpha = 0f;
 
             if (dc.date != today)
                 dc.text.color = new Color32(0x5B, 0x5A, 0x5A, 0xFF);
 
             lastSelectedCell = null;
+
+            transactionCreator.SetDate(DateTime.Now.Date);
             return;
         }
 
@@ -174,24 +160,22 @@ public class Calendar : MonoBehaviour
         }
 
         selectedDay = dc.date;
+        SelectedDateMemory.LastSelectedDate = dc.date;
+
         dc.background.alpha = 1f;
         dc.text.color = new Color32(0x34, 0xC7, 0x59, 0xFF);
 
         lastSelectedCell = dc;
 
         transactionCreator.SetDate(dc.date);
-
     }
-
 
     public DateTime? GetSelectedDate()
     {
         return selectedDay;
     }
 
-    // ------------------------------
-    // Month Picker
-    // ------------------------------
+    // МЕСЯЦ 
 
     public void OpenMonthPicker()
     {
@@ -281,10 +265,7 @@ public class Calendar : MonoBehaviour
         monthPickerPanel.SetActive(false);
     }
 
-    // ------------------------------
-    // Year Picker
-    // ------------------------------
-
+    // ГОД 
     public void UpdateYearCarousel()
     {
         if (selectedYear > today.Year)
@@ -320,34 +301,26 @@ public class Calendar : MonoBehaviour
         UpdateDateCarousel();
     }
 
-    // ------------------------------
-    // Инерционный свайп
-    // ------------------------------
+    // СВАЙП 
 
     private void HandleSwipe(Vector2 swipeDelta, Vector2 startPos, float swipeTime)
     {
-        // Минимальная длина свайпа
         if (Mathf.Abs(swipeDelta.y) < 120f)
             return;
 
         bool inMonth = RectTransformUtility.RectangleContainsScreenPoint(monthSwipeArea, startPos);
         bool inYear = RectTransformUtility.RectangleContainsScreenPoint(yearSwipeArea, startPos);
 
-        // Приоритет: если попали в месяц — год игнорируется
         if (inMonth)
             inYear = false;
 
-        // Если не попали никуда — выходим
         if (!inMonth && !inYear)
             return;
 
-        // Отключаем основной скролл
         mainScroll.enabled = false;
 
-        // Скорость свайпа
         float speed = swipeDelta.magnitude / Mathf.Max(swipeTime, 0.05f);
 
-        // Ограничиваем количество шагов
         int steps = Mathf.Clamp(Mathf.FloorToInt(speed / 1200f), 1, 3);
 
         bool forward = swipeDelta.y > 0;
@@ -373,11 +346,6 @@ public class Calendar : MonoBehaviour
             }
         }
     }
-
-
-    // ------------------------------
-    // Update
-    // ------------------------------
 
     void Update()
     {
@@ -422,10 +390,6 @@ public class Calendar : MonoBehaviour
         }
     }
 
-    // ------------------------------
-    // Кнопка вперёд (CanvasGroup)
-    // ------------------------------
-
     private void UpdateNextMonthButton()
     {
         bool isLastMonth = currentDate.Year == today.Year &&
@@ -444,4 +408,22 @@ public class Calendar : MonoBehaviour
             nextMonthCanvasGroup.blocksRaycasts = true;
         }
     }
+
+    public void NextMonth()
+    {
+        if (currentDate.Year == today.Year && currentDate.Month >= today.Month)
+            return;
+
+        currentDate = currentDate.AddMonths(1);
+        GenerateCalendar(currentDate.Year, currentDate.Month);
+        UpdateNextMonthButton();
+    }
+
+    public void PrevMonth()
+    {
+        currentDate = currentDate.AddMonths(-1);
+        GenerateCalendar(currentDate.Year, currentDate.Month);
+        UpdateNextMonthButton();
+    }
+
 }
