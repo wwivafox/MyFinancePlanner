@@ -12,3 +12,8 @@
 *.sln
 *.suo
 *.userprefs
+
+.vs/
+*.log
+UpgradeLog*.htm
+hs_err_*.log
